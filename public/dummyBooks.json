@@ -1,0 +1,127 @@
+{
+  "totalElements": 0,
+  "totalPages": 0,
+  "pageable": {
+    "paged": true,
+    "pageNumber": 0,
+    "pageSize": 0,
+    "offset": 0,
+    "sort": {
+      "sorted": true,
+      "empty": true,
+      "unsorted": true
+    },
+    "unpaged": true
+  },
+  "size": 0,
+  "content": [
+    {
+      "bookId": 1,
+      "isbn13": "asdfqwerzxcvt",
+      "title": "book_title_1",
+      "author": "book_author_1",
+      "publisher": "book_publisher_1",
+      "pubDate": "2025-07-19T09:18:33.333Z",
+      "reputation": 0,
+      "coverImage": "https://placehold.co/300x400",
+      "description": "description1",
+      "categoryName": "categoryName1",
+      "createdAt": "2025-07-19T09:18:33.333Z",
+      "viewCount": 0
+    },
+    {
+      "bookId": 2,
+      "isbn13": "asdfqwerzxcvt",
+      "title": "book_title_2",
+      "author": "book_author_2",
+      "publisher": "book_publisher_2",
+      "pubDate": "2025-07-19T09:18:33.333Z",
+      "reputation": 0,
+      "coverImage": "https://placehold.co/300x400",
+      "description": "description_2",
+      "categoryName": "categoryName_2",
+      "createdAt": "2025-07-19T09:18:33.333Z",
+      "viewCount": 0
+    },
+    {
+      "bookId": 3,
+      "isbn13": "asdfqwerzxcvt",
+      "title": "book_title_3",
+      "author": "book_author_3",
+      "publisher": "book_publisher_3",
+      "pubDate": "2025-07-19T09:18:33.333Z",
+      "reputation": 0,
+      "coverImage": "https://placehold.co/300x400",
+      "description": "description_3",
+      "categoryName": "categoryName_3",
+      "createdAt": "2025-07-19T09:18:33.333Z",
+      "viewCount": 0
+    },
+    {
+      "bookId": 4,
+      "isbn13": "asdfqwerzxcvt",
+      "title": "book_title_4",
+      "author": "book_author_4",
+      "publisher": "book_publisher_4",
+      "pubDate": "2025-07-19T09:18:33.333Z",
+      "reputation": 0,
+      "coverImage": "https://placehold.co/300x400",
+      "description": "description_4",
+      "categoryName": "categoryName_4",
+      "createdAt": "2025-07-19T09:18:33.333Z",
+      "viewCount": 0
+    },
+    {
+      "bookId": 5,
+      "isbn13": "asdfqwerzxcvt",
+      "title": "book_title_5",
+      "author": "book_author_5",
+      "publisher": "book_publisher_5",
+      "pubDate": "2025-07-19T09:18:33.333Z",
+      "reputation": 0,
+      "coverImage": "https://placehold.co/300x400",
+      "description": "description_5",
+      "categoryName": "categoryName_5",
+      "createdAt": "2025-07-19T09:18:33.333Z",
+      "viewCount": 0
+    },
+    {
+      "bookId": 6,
+      "isbn13": "asdfqwerzxcvt",
+      "title": "book_title_6",
+      "author": "book_author_6",
+      "publisher": "book_publisher_6",
+      "pubDate": "2025-07-19T09:18:33.333Z",
+      "reputation": 0,
+      "coverImage": "https://placehold.co/300x400",
+      "description": "description_6",
+      "categoryName": "categoryName_6",
+      "createdAt": "2025-07-19T09:18:33.333Z",
+      "viewCount": 0
+    },
+    {
+      "bookId": 7,
+      "isbn13": "asdfqwerzxcvt",
+      "title": "book_title_7",
+      "author": "book_author_7",
+      "publisher": "book_publisher_7",
+      "pubDate": "2025-07-19T09:18:33.333Z",
+      "reputation": 0,
+      "coverImage": "https://placehold.co/300x400",
+      "description": "description_7",
+      "categoryName": "categoryName_7",
+      "createdAt": "2025-07-19T09:18:33.333Z",
+      "viewCount": 0
+    }
+  ],
+  "number": 0,
+  "sort": {
+    "sorted": true,
+    "empty": true,
+    "unsorted": true
+  },
+  "numberOfElements": 0,
+  "first": true,
+  "last": true,
+  "empty": true
+}

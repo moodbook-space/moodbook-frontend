@@ -1,0 +1,28 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  row-gap: 16px;
+  padding: 24px;
+}
+
+.title {
+  position: absolute;
+  visibility: hidden;
+}
+
+.logo {
+  width: 121px;
+  height: 121px;
+}
+
+.logoAnchor {
+  all: unset;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
