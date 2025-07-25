@@ -32,7 +32,7 @@ jobs:
             cd /home/ubuntu/moodbook-frontend
 
             echo "환경 설정 파일 생성"
-            echo -e "VITE_REST_SERVER=${{ secrets.REST_SERVER }}" >> .env
+            echo -e "VITE_REST_SERVER=${{ secrets.REST_SERVER }}" > .env
 
             echo "🐳 Docker Compose로 빌드 및 배포 시작"
             docker compose up -d --build
