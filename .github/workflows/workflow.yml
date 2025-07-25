@@ -1,0 +1,57 @@
+name: default workflow
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 레포지토리 복사
+        uses: actions/checkout@v3
+
+      - name: 정상 작동 여부 확인을 위한 빌드
+        run: |
+          npm install
+          npm run build
+
+  ssh_test:
+    needs: build-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: EC2 키 생성하기
+        run : |
+          echo "${{ secrets.EC2_SSH_KEY }}" > ./keypair.pem
+          chmod 400 ./keypair.pem
+
+      - name: Mac의 SSH에 접속 후 파일 생성하기
+        run: |
+          ssh -o StrictHostKeyChecking=no -i ./keypair.pem ubuntu@ec2-43-200-89-83.ap-northeast-2.compute.amazonaws.com \
+          << 'EOF'
+          source ~/.bashrc
+          source ~/.profile
+          export NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+          corepack enable
+          if [ -d "moodbook-frontend" ]; then
+            echo "기존 디렉토리 존재하므로, reset만 하기"
+            cd moodbook-frontend
+            git fetch origin
+            git reset --hard origin/main
+          else
+            echo "기존 디렉토리가 없으므로, 새로 다운받음"
+            git clone https://github.com/moodbook-space/moodbook-frontend.git
+            cd moodbook-frontend
+          fi
+          echo "빌드 진행중"
+          sudo chown -R ubuntu:ubuntu dist
+          npm install
+          yarn build
+          echo "npm 경로 확인 : " $(which npm) 
+          echo "node 경로 확인 : " $(which node)
+          echo "docker 경로 확인 : " $(which docker) 
+          sudo systemctl start docker
+          sudo docker compose up -d
+          echo "작업 완료"
+          EOF
