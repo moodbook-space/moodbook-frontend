@@ -29,7 +29,7 @@ jobs:
               git pull origin dev
             fi
 
-            cd moodbook-frontend
+            cd /home/ubuntu/moodbook-frontend
 
             echo "환경 설정 파일 생성"
             echo -e "VITE_REST_SERVER=${{ secrets.REST_SERVER }}" >> .env
