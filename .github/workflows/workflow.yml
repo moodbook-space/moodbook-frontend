@@ -29,6 +29,7 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no -i ./keypair.pem ubuntu@ec2-43-200-89-83.ap-northeast-2.compute.amazonaws.com \
           << 'EOF'
+          cd ~/
           source ~/.bashrc
           source ~/.profile
           export NVM_DIR="$HOME/.nvm"
@@ -38,7 +39,7 @@ jobs:
             echo "기존 디렉토리 존재하므로, reset만 하기"
             cd moodbook-frontend
             git fetch origin
-            git reset --hard origin/main
+            git reset --hard origin/dev
           else
             echo "기존 디렉토리가 없으므로, 새로 다운받음"
             git clone https://github.com/moodbook-space/moodbook-frontend.git
@@ -46,12 +47,10 @@ jobs:
           fi
           echo "빌드 진행중"
           sudo chown -R ubuntu:ubuntu dist
-          npm install
+          yarn install
           yarn build
-          echo "npm 경로 확인 : " $(which npm) 
-          echo "node 경로 확인 : " $(which node)
-          echo "docker 경로 확인 : " $(which docker) 
-          sudo systemctl start docker
-          sudo docker compose up -d
-          echo "작업 완료"
+          
+          cd dist
+          sudo rm -rf /var/www/html/assets
+          sudo mv ./* /var/www/html/
           EOF
