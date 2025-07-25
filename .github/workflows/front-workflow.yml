@@ -14,20 +14,31 @@ jobs:
           key: ${{ secrets.KEY }}
           script: |
             set -e
-            cd /home/ubuntu/moodbook-frontend
-            
-            echo "SSH 접속"
+            echo "SSH 접속 완료"
+
+            cd /home/ubuntu
+
+            if [ ! -d "moodbook-frontend/.git" ]; then
+              echo "📂 moodbook-frontend 디렉토리 없음. 클론 시작..."
+              git clone -b dev ${{ secrets.REPOSITORY_URL }} moodbook-frontend
+            else
+              echo "📂 moodbook-frontend 디렉토리 존재. Pull로 최신화..."
+              cd moodbook-frontend
+              git reset --hard
+              git clean -fd
+              git pull origin dev
+            fi
+
+            cd moodbook-frontend
+
             echo "환경 설정 파일 생성"
             echo -e "VITE_REST_SERVER=${{ secrets.REST_SERVER }}" >> .env
 
-            echo "Checking Git repository..."
-            git_output=$(sudo git pull origin dev 2>&1) || { echo "Git pull failed"; echo "$git_output"; exit 1; }
-            echo "$git_output"
-            
+            echo "🐳 Docker Compose로 빌드 및 배포 시작"
             docker compose up -d --build
 
       - name: 디스코드 성공 알림 전송
-        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        if: success()
         run: |
           curl -H "Content-Type: application/json" \
                -X POST \
@@ -35,7 +46,7 @@ jobs:
                ${{ secrets.DISCORD_WEBHOOK_URL }}
                
       - name: 디스코드 실패 알림 전송
-        if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+        if: failure()
         run: |
           curl -H "Content-Type: application/json" \
                -X POST \
