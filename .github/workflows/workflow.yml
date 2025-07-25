@@ -32,8 +32,7 @@ jobs:
           cd ~/
           source ~/.bashrc
           source ~/.profile
-          export NVM_DIR="$HOME/.nvm"
-          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+          
           corepack enable
           if [ -d "moodbook-frontend" ]; then
             echo "기존 디렉토리 존재하므로, reset만 하기"
