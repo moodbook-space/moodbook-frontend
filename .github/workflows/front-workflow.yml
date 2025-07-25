@@ -16,7 +16,7 @@ jobs:
             set -e
             echo "SSH 접속 완료"
 
-            cd /home/ubuntu
+            cd /home/ubuntu/moodbook-frontend
 
             if [ ! -d "moodbook-frontend/.git" ]; then
               echo "📂 moodbook-frontend 디렉토리 없음. 클론 시작..."
