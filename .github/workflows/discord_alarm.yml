@@ -1,0 +1,30 @@
+# Github UI에서 표시될 워크플로우 이름
+name: 디스코드 웹훅 전송
+
+# 이벤트 트리거 설정
+on:
+  workflow_run:
+    workflows: ["default workflow"]
+    types:
+      - completed
+
+# 실행할 작업
+jobs:
+  notify-discord:
+    runs-on: ubuntu-latest   # 실행 OS 환경 지정!
+    steps:
+      - name: 디스코드 성공 알림 전송
+        if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+        run: |
+          curl -H "Content-Type: application/json" \
+               -X POST \
+               -d '{"content":"🚀 `${{ github.ref_name }}` 빌드가 실패했습니다. 로그를 확인해주세요."}' \
+               ${{ secrets.DISCORD_WEBHOOK_URL }}
+
+      - name: 디스코드 실패 알림 전송
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        run: |
+          curl -H "Content-Type: application/json" \
+               -X POST \
+               -d '{"content":"🚀 `${{ github.ref_name }}` 성공적으로 빌드했고, EC2에 배포했습니다!"}' \
+               ${{ secrets.DISCORD_WEBHOOK_URL }}
