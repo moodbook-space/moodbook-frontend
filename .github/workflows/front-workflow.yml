@@ -18,9 +18,9 @@ jobs:
 
             cd /home/ubuntu
 
-            if [ ! -d "https://github.com/moodbook-space/moodbook-frontend.git" ]; then
+            if [ ! -d "moodbook-frontend/.git" ]; then
               echo "📂 moodbook-frontend 디렉토리 없음. 클론 시작..."
-              git clone -b dev ${{ secrets.REPOSITORY_URL }} moodbook-frontend
+              git clone -b dev https://github.com/moodbook-space/moodbook-frontend.git moodbook-frontend
             else
               echo "📂 moodbook-frontend 디렉토리 존재. Pull로 최신화..."
               cd moodbook-frontend
