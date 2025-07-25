@@ -18,7 +18,7 @@ jobs:
         run: |
           curl -H "Content-Type: application/json" \
                -X POST \
-               -d '{"content":"🚀 `${{ github.ref_name }}` 빌드가 실패했습니다. 로그를 확인해주세요."}' \
+               -d '{"content":"🚀 `FRONTEND : ${{ github.ref_name }}` 빌드가 실패했습니다. 로그를 확인해주세요."}' \
                ${{ secrets.DISCORD_WEBHOOK_URL }}
 
       - name: 디스코드 실패 알림 전송
@@ -26,5 +26,5 @@ jobs:
         run: |
           curl -H "Content-Type: application/json" \
                -X POST \
-               -d '{"content":"🚀 `${{ github.ref_name }}` 성공적으로 빌드했고, EC2에 배포했습니다!"}' \
+               -d '{"content":"🚀 `FRONTEND : ${{ github.ref_name }}`에 성공적으로 빌드했고, EC2에 배포 완료했습니다!"}' \
                ${{ secrets.DISCORD_WEBHOOK_URL }}
