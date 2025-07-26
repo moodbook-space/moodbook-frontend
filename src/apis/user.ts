@@ -17,7 +17,7 @@ export interface RequestTempSignUpInput {
   nickname: string;
 }
 export const requestTempSignUp = (input: RequestTempSignUpInput) => {
-  return defaultFetch(`${Envs.VITE_API_ENDPOINT}/api/oauth/tempSignUp`, {
+  return defaultFetch(`${Envs.VITE_API_ENDPOINT}/api/oauth/signUp`, {
     method: 'POST',
     body: JSON.stringify(input),
   });

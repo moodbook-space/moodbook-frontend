@@ -2,6 +2,9 @@ FROM node:22 AS build
 WORKDIR /app
 COPY package.json yarn.lock ./
 RUN yarn install
+
+COPY .env .env
+
 COPY . .
 RUN yarn run build
 
