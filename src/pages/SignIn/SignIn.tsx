@@ -17,6 +17,8 @@ import { setLocalStorageItem, StorageKeys } from '@/utils/storage';
 import moodBookLogo from '@/assets/moodbook_logo.png';
 import { useNavigate } from 'react-router';
 import { useUserStore } from '@/stores/user';
+import { Paths } from '@/routes/routes';
+import { SignUpButton } from '../SignUp/SignUp.styles';
 
 type FormValues = RequestLoginInput;
 
@@ -29,26 +31,39 @@ export const SignIn = () => {
 
     try {
       const loginResponse = await requestLogin({ email, password });
-      const loginData: RequestLoginResponse = await loginResponse.json();
-      const { accessToken, refreshToken } = loginData;
-      setLocalStorageItem(StorageKeys.ACCESS_TOKEN, accessToken);
-      setLocalStorageItem(StorageKeys.REFRESH_TOKEN, refreshToken);
 
-      const meResponse = await requestMe();
-      const meData: RequestMeResponse = await meResponse.json();
+      if (loginResponse.status === 200) {
+        const loginData: RequestLoginResponse = await loginResponse.json();
+        const { accessToken, refreshToken } = loginData;
+        setLocalStorageItem(StorageKeys.ACCESS_TOKEN, accessToken);
+        setLocalStorageItem(StorageKeys.REFRESH_TOKEN, refreshToken);
 
-      setId(meData.id);
+        const meResponse = await requestMe();
+        const meData: RequestMeResponse = await meResponse.json();
 
-      navigate('/');
+        setId(meData.id);
+
+        navigate(Paths.MAIN);
+      } else if (loginResponse.status === 404) {
+        message.error('가입되지 않은 계정입니다.');
+      }
     } catch (err) {
       const error = err as Error;
       message.error(error.message);
     }
   };
 
+  const onSignUpClick = () => {
+    navigate(Paths.SIGN_UP);
+  };
+
   return (
     <Container>
-      <LogoImg src={moodBookLogo} alt='MoodBook Logo' />
+      <LogoImg
+        src={moodBookLogo}
+        alt='MoodBook Logo'
+        onClick={() => navigate(Paths.SIGN_IN)}
+      />
       <Card>
         <Form id='signIn' onFinish={onSignInSubmit}>
           <FormItemWrapper>
@@ -67,6 +82,14 @@ export const SignIn = () => {
             로그인
           </Button>
         </Form>
+        <SignUpButton
+          type='link'
+          size='middle'
+          htmlType='button'
+          onClick={onSignUpClick}
+        >
+          회원가입
+        </SignUpButton>
       </Card>
     </Container>
   );

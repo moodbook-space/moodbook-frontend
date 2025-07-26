@@ -14,18 +14,6 @@ import { Book } from '@/apis/books';
 import { useNavigate } from 'react-router';
 import { Paths } from '@/routes/routes';
 
-const getRandomColor = () => {
-  const colors = [
-    '#FDFD96',
-    '#FFB3BA',
-    '#B5EAD7',
-    '#C9C9FF',
-    '#FFDAC1',
-    '#E2F0CB',
-  ];
-  return colors[Math.floor(Math.random() * colors.length)];
-};
-
 const Arrow = (props: CustomArrowProps) => {
   return <CustomArrow {...props} />;
 };
@@ -63,7 +51,7 @@ export const BookList = (props: BookListProps) => {
       <Slider {...sliderSettings}>
         {books.map((book) => (
           <div key={book.bookId}>
-            <Card size='small' $backgroundColor={getRandomColor()}>
+            <Card size='small'>
               <CardContent>
                 {/* 제목, 설명에 커서 올리면 툴팁으로 전문이 뜸 */}
                 <Texts>

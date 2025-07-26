@@ -11,6 +11,8 @@ import { AiSearch } from '@/pages/AiSearch/AiSearch';
 import { SelectMood } from '@/pages/SelectMood/SelectMood';
 import { SignIn } from '@/pages/SignIn/SignIn';
 import { BookDetail } from '@/pages/BookDetail/BookDetail';
+import { MeetingCreatePage } from '@/pages/Meeting/MeetingCreatePage';
+import { MeetingDetailPage } from '@/pages/Meeting/MeetingDetailPage';
 
 export const Paths = {
   MAIN: '/',
@@ -21,6 +23,8 @@ export const Paths = {
   SEARCH: '/search',
   AI_SEARCH: '/ai-search',
   SELECT_MOOD: '/select-mood',
+  MEETING_CREATE: '/meeting/create',
+  MEETING: '/meeting',
 
   SIGN_UP: '/sign-up',
   SIGN_IN: '/sign-in',
@@ -42,6 +46,8 @@ export const router = createBrowserRouter([
           { path: Paths.SEARCH, Component: Search },
           { path: Paths.AI_SEARCH, Component: AiSearch },
           { path: Paths.SELECT_MOOD, Component: SelectMood },
+          { path: Paths.MEETING_CREATE, Component: MeetingCreatePage },
+          { path: Paths.MEETING, Component: MeetingDetailPage },
         ],
       },
       { path: Paths.SIGN_UP, Component: SignUp },

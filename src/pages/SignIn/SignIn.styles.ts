@@ -18,6 +18,7 @@ export const LogoImg = styled.img`
   background: #333;
 
   border-radius: 6px;
+  cursor: pointer;
 `;
 
 export const Form = styled(AntdForm)<any>`

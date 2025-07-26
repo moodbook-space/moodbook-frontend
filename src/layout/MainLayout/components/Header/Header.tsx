@@ -4,9 +4,12 @@ import { useNavigate } from 'react-router';
 import { Paths } from '../../../../routes/routes';
 import { ProfileIcon } from './components/ProfileIcon/ProfileIcon';
 import { AlarmIcon } from './components/AlarmIcon/AlarmIcon';
+import { useFetchMeAndSetStore } from '@/hooks/useFetchMeAndSetStore';
 
 export const Header = () => {
   const navigate = useNavigate();
+
+  useFetchMeAndSetStore();
 
   const onSearch = (value: string) => {
     if (value.trim().length === 0) {

@@ -5,11 +5,12 @@ export const StorageKeys = {
 export type StorageKey = keyof typeof StorageKeys;
 
 export const getLocalStorageItem = (key: StorageKey) => {
-  const value = localStorage.getItem(key);
-  if (value) {
+  try {
+    const value = localStorage.getItem(key) ?? '{}';
     return JSON.parse(value);
+  } catch {
+    return null;
   }
-  return value;
 };
 
 export const setLocalStorageItem = <T = any>(key: StorageKey, value: T) => {

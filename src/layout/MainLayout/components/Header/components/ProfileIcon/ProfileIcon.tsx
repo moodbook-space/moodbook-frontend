@@ -1,20 +1,31 @@
-import { Dropdown } from 'antd';
+import { Dropdown, message } from 'antd';
 import { Link, useNavigate } from 'react-router';
 import { LogoutButton, ProfileImage } from './ProfileIcon.styles';
 import { removeLocalStorageItem, StorageKeys } from '@/utils/storage';
 import profileImage from '@/assets/profile.png';
 import { Paths } from '@/routes/routes';
+import { requestLogout } from '@/apis/user';
+import { useUserStore } from '@/stores/user';
 
 export const ProfileIcon = () => {
   const navigate = useNavigate();
+  const { id } = useUserStore();
 
-  const onLogoutClick = () => {
-    alert('TODO: 로그아웃 처리');
+  const onLogoutClick = async () => {
+    const response = await requestLogout(id);
 
-    removeLocalStorageItem(StorageKeys.ACCESS_TOKEN);
-    removeLocalStorageItem(StorageKeys.REFRESH_TOKEN);
+    if (response.status === 200) {
+      message.info('로그아웃되었습니다.');
+      removeLocalStorageItem(StorageKeys.ACCESS_TOKEN);
+      removeLocalStorageItem(StorageKeys.REFRESH_TOKEN);
 
-    navigate(Paths.SIGN_IN);
+      setTimeout(() => {
+        navigate(Paths.SIGN_IN);
+      }, 3000);
+    } else {
+      const json = await response.json();
+      message.error(JSON.stringify(json));
+    }
   };
   return (
     <Dropdown

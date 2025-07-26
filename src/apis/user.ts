@@ -17,7 +17,7 @@ export interface RequestTempSignUpInput {
   nickname: string;
 }
 export const requestTempSignUp = (input: RequestTempSignUpInput) => {
-  return defaultFetch(`${Envs.VITE_API_ENDPOINT}/api/oauth/signUp`, {
+  return defaultFetch(`${Envs.VITE_API_ENDPOINT}/api/oauth/tempSignUp`, {
     method: 'POST',
     body: JSON.stringify(input),
   });
@@ -69,5 +69,11 @@ export type RequestNotificationsResponse = Notification[];
 export const requestNotifications = (id: number) => {
   return defaultFetch(`${Envs.VITE_API_ENDPOINT}/api/notification/${id}`, {
     method: 'GET',
+  });
+};
+
+export const requestLogout = (id: number) => {
+  return defaultFetch(`${Envs.VITE_API_ENDPOINT}/api/oauth/logout/${id}`, {
+    method: 'POST',
   });
 };

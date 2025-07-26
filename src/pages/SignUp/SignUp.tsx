@@ -7,6 +7,7 @@ import {
   requestTempSignUp,
   RequestTempSignUpInput,
 } from '@/apis/user';
+import { Paths } from '@/routes/routes';
 
 interface FormValues extends RequestTempSignUpInput {
   passwordConfirm: string;
@@ -46,8 +47,12 @@ export const SignUp = () => {
       nickname,
     });
     if (response.status === 200) {
-      alert(response.text);
+      // ? 회원가입 후 이메일이 오지 않는다.
+      alert('가입에 성공했습니다. 이메일 인증을 해 주세요.');
+      // 서버에서 주는 redirect 주소랑 프론트 구현 주소랑 달라 임의 navigate 처리
       navigate('/sign-in');
+    } else if (response.status === 302) {
+      alert('이미 가입한 회원입니다.');
     } else {
       message.error('가입 요청 중 오류가 발생했습니다.');
     }
@@ -55,7 +60,12 @@ export const SignUp = () => {
 
   return (
     <section className={styles.container}>
-      <img className={styles.logo} src={moodBookLogo} alt='MoodBook Logo' />
+      <img
+        className={styles.logo}
+        src={moodBookLogo}
+        alt='MoodBook Logo'
+        onClick={() => navigate(Paths.SIGN_IN)}
+      />
       <Card>
         <Form id='signUp' className={styles.inner} onFinish={onSignUpSubmit}>
           <div className={styles.formItemContainer}>

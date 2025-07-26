@@ -5,12 +5,9 @@ export const Wrapper = styled.section`
   padding: 0px 20px;
 `;
 
-interface CardProps {
-  $backgroundColor: string;
-}
-export const Card = styled(AntdCard)<CardProps>`
-  background-color: ${({ $backgroundColor }) => $backgroundColor};
+export const Card = styled(AntdCard)`
   margin: 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 `;
 
 export const CardContent = styled.div`
