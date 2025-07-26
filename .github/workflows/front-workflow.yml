@@ -30,6 +30,9 @@ jobs:
             fi
 
             cd /home/ubuntu/moodbook-frontend
+
+            echo "🧹 기존 컨테이너 종료 및 삭제"
+            docker compose down
             
             echo "환경 설정 파일 생성"
             echo -e "VITE_API_ENDPOINT=${{ secrets.API_ENDPOINT }}" > .env
