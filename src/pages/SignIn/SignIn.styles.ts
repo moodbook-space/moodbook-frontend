@@ -38,3 +38,15 @@ export const FormItemWrapper = styled.div`
 export const FormItem = styled(Form.Item)`
   margin-bottom: 0px;
 `;
+
+export const SocialLoginButton = styled.button`
+  all: unset;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  cursor: pointer;
+`;

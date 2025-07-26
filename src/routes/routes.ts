@@ -13,6 +13,7 @@ import { SignIn } from '@/pages/SignIn/SignIn';
 import { BookDetail } from '@/pages/BookDetail/BookDetail';
 import { MeetingCreatePage } from '@/pages/Meeting/MeetingCreatePage';
 import { MeetingDetailPage } from '@/pages/Meeting/MeetingDetailPage';
+import { VerifyEmail } from '@/pages/VerifyEmail/VerifyEmail';
 
 export const Paths = {
   MAIN: '/',
@@ -28,6 +29,7 @@ export const Paths = {
 
   SIGN_UP: '/sign-up',
   SIGN_IN: '/sign-in',
+  VERIFY_EMAIL: '/auth/verify-email',
 };
 
 export const router = createBrowserRouter([
@@ -52,6 +54,7 @@ export const router = createBrowserRouter([
       },
       { path: Paths.SIGN_UP, Component: SignUp },
       { path: Paths.SIGN_IN, Component: SignIn },
+      { path: Paths.VERIFY_EMAIL, Component: VerifyEmail },
     ],
   },
 ]);

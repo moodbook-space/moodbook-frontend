@@ -91,3 +91,29 @@ export const requestGetBookMarks = () => {
 
   return defaultFetch(url, { method: 'GET' });
 };
+
+export type RequestGetBooksWithseywordResponse = PageContent<Book>;
+/**
+ * 전체 도서 조회
+ * @return RequestGetBooksResponse
+ */
+export const requestGetBooksWithKeyword = (keyword: string) => {
+  const url = `${Envs.VITE_API_ENDPOINT}/api/books/autocomplete?keyword=${keyword}`;
+
+  return defaultFetch(url, { method: 'GET' });
+};
+
+export interface BookByMood {
+  bookId: number;
+  isbn13: string;
+  title: string;
+  coverImage: string;
+  reputation: number;
+}
+export type RequestGetBooksWithMoodResponse = BookByMood[];
+/** @return RequestGetBooksWithMoodResponse */
+export const requestGetBooksWithMood = (mood: string) => {
+  const url = `${Envs.VITE_API_ENDPOINT}/api/books/recommend/emotion/top10?emotion=${mood}`;
+
+  return defaultFetch(url, { method: 'GET' });
+};

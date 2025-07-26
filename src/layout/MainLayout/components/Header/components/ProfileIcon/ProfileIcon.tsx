@@ -21,7 +21,7 @@ export const ProfileIcon = () => {
 
       setTimeout(() => {
         navigate(Paths.SIGN_IN);
-      }, 3000);
+      }, 1500);
     } else {
       const json = await response.json();
       message.error(JSON.stringify(json));

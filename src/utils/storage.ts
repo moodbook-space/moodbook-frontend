@@ -6,7 +6,7 @@ export type StorageKey = keyof typeof StorageKeys;
 
 export const getLocalStorageItem = (key: StorageKey) => {
   try {
-    const value = localStorage.getItem(key) ?? '{}';
+    const value = localStorage.getItem(key) ?? '"null"';
     return JSON.parse(value);
   } catch {
     return null;

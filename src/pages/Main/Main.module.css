@@ -6,3 +6,8 @@
   padding: 24px;
   row-gap: 40px;
 }
+
+.emotionBooks {
+  border-radius: 8px;
+  background-color: #f2f2f2;
+}

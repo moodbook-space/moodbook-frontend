@@ -17,7 +17,7 @@ export interface RequestTempSignUpInput {
   nickname: string;
 }
 export const requestTempSignUp = (input: RequestTempSignUpInput) => {
-  return defaultFetch(`${Envs.VITE_API_ENDPOINT}/api/oauth/tempSignUp`, {
+  return defaultFetch(`${Envs.VITE_API_ENDPOINT}/api/oauth/sign-up`, {
     method: 'POST',
     body: JSON.stringify(input),
   });
@@ -31,8 +31,8 @@ export interface RequestLoginResponse {
   accessToken: string;
   refreshToken: string;
 }
-export const requestLogin = (input: RequestLoginInput) => {
-  return defaultFetch(`${Envs.VITE_API_ENDPOINT}/api/oauth/login`, {
+export const requestSignIn = (input: RequestLoginInput) => {
+  return defaultFetch(`${Envs.VITE_API_ENDPOINT}/api/oauth/sign-in`, {
     method: 'POST',
     body: JSON.stringify(input),
   });
@@ -76,4 +76,13 @@ export const requestLogout = (id: number) => {
   return defaultFetch(`${Envs.VITE_API_ENDPOINT}/api/oauth/logout/${id}`, {
     method: 'POST',
   });
+};
+
+export const requestVerifyEmail = (token: string) => {
+  return defaultFetch(
+    `${Envs.VITE_API_ENDPOINT}/auth/verify-email?token=${token}`,
+    {
+      method: 'GET',
+    },
+  );
 };

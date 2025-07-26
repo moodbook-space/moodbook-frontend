@@ -22,10 +22,10 @@ export const Header = () => {
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
-        <Button type='link' href={Paths.AI_SEARCH}>
+        <Button type='link' onClick={() => navigate(Paths.AI_SEARCH)}>
           AI 검색
         </Button>
-        <Button type='link' href={Paths.SELECT_MOOD}>
+        <Button type='link' onClick={() => navigate(Paths.SELECT_MOOD)}>
           기분 선택
         </Button>
       </nav>
