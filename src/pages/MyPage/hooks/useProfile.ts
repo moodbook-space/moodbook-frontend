@@ -15,5 +15,5 @@ export const useProfile = () => {
     fetchProfile();
   }, []);
 
-  return { profile };
+  return { profile, setProfile};
 };
