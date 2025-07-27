@@ -184,7 +184,7 @@ export const MyPageModify =  () => {
               {/* 버튼 영역 */}
               <ButtonWrapper>
                 <SubmitButton onClick={() => submitProfile()}>수정 완료</SubmitButton>
-                <WithdrawButton>회원 탈퇴</WithdrawButton>
+                {/* <WithdrawButton>회원 탈퇴</WithdrawButton> */}
               </ButtonWrapper>
             </Right>
           </Wrapper>
