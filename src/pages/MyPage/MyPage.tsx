@@ -1,5 +1,5 @@
 import { Button, Divider, Modal, Typography } from 'antd';
-import { useProfile } from './hooks/useProfile';
+import { useProfile } from './hooks/useProfile.ts';
 import {
   Container,
   ImageContainer,
@@ -10,7 +10,13 @@ import {
 import { BookmarkSection } from './components/BookmarkSection';
 import { useState } from 'react';
 
+// MyPage() => {} 구문은 화살표 함수라고 하며, const(변수)를 함수처럼 사용할 수 있게 한다
+// 덕분에 MyPage()는 변수이면서, 사용했을 때 함수처럼 return을 줌
 export const MyPage = () => {
+
+  // 객체에서 값을 꺼내기 위해 중괄호로 profile을 묶은 것이다.
+  // useProfile이 객체를 반환한다고 생각하면, 그 중에 profile 이라는 값만 꺼낼 수 있게 함
+  // const profile = useProfile().profile; 과 같은 동작을 한다.
   const { profile } = useProfile();
   const [isEditModalShown, setEditModalShown] = useState(false);
 
@@ -45,7 +51,6 @@ export const MyPage = () => {
         <BookmarkSection />
       </Container>
       <Modal open={isEditModalShown} onCancel={() => setEditModalShown(false)}>
-        프로필 수정 영역
       </Modal>
     </>
   );
