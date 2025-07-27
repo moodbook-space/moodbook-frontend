@@ -12,6 +12,8 @@ import {
   FormItemWrapper,
   LogoImg,
   SocialLoginButton,
+  SocialLoginGroup,
+  SubmitButton,
 } from './SignIn.styles';
 import { Button, Card, Input, message, Typography } from 'antd';
 import { setLocalStorageItem, StorageKeys } from '@/utils/storage';
@@ -20,7 +22,8 @@ import { useNavigate } from 'react-router';
 import { useUserStore } from '@/stores/user';
 import { Paths } from '@/routes/routes';
 import { SignUpButton } from '../SignUp/SignUp.styles';
-import KakaoLoginImage from '@/assets/kakao_login_small.png';
+import GoogleLoginImage from '@/assets/google.png';
+import KakaoLoginImage from '@/assets/kakao.png';
 
 type FormValues = RequestLoginInput;
 
@@ -84,21 +87,30 @@ export const SignIn = () => {
               <Input required type='password' />
             </FormItem>
           </FormItemWrapper>
-          <Button type='default' size='large' htmlType='submit' key='submit'>
+          <SubmitButton type='submit'>
             로그인
-          </Button>
+          </SubmitButton>
         </Form>
-        <SocialLoginButton onClick={onSocialLoginClick}>
-          <img src={KakaoLoginImage} />
-        </SocialLoginButton>
         <SignUpButton
-          type='link'
-          size='middle'
+          size='large'
           htmlType='button'
           onClick={onSignUpClick}
         >
           회원가입
         </SignUpButton>
+        {/* <SocialLoginButton onClick={onSocialLoginClick}>
+          <img src={KakaoLoginImage} />
+        </SocialLoginButton> */}
+        <SocialLoginGroup>
+          <SocialLoginButton onClick={() => alert('구글 로그인 준비 중')}>
+            <img src={GoogleLoginImage} alt='Google Login' />
+          </SocialLoginButton>
+          <SocialLoginButton onClick={() => alert('카카오 로그인 준비 중')}>
+            <img src={KakaoLoginImage} alt='Kakao Login' />
+          </SocialLoginButton>
+        </SocialLoginGroup>
+
+
       </Card>
     </Container>
   );
