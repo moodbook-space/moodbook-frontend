@@ -16,7 +16,7 @@ export const VerifyEmail = () => {
     const verifyEmail = async () => {
       const response = await requestVerifyEmail(token);
       const json = await response.json();
-      if (response.ok) {
+      if (response.status === 200) {
         setVerifySuccess(true);
       } else {
         message.error(JSON.stringify(json));
