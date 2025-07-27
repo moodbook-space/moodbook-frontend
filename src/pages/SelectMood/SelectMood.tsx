@@ -21,17 +21,18 @@ export const SelectMood = () => {
   const [selectedMoods, setSelectedMoods] = useState<Mood[]>(moods);
 
   const toggleMood = (mood: Mood) => {
+      if (selectedMoods.includes(mood)) {
+      const moodSet = new Set([...selectedMoods]);
+      moodSet.delete(mood);
+      setSelectedMoods([...moodSet]);
+      return;
+    }
+
     if (selectedMoods.length >= SELECTED_MOOD_MAX_COUNT) {
       return;
     }
 
-    if (selectedMoods.includes(mood)) {
-      const moodSet = new Set([...selectedMoods]);
-      moodSet.delete(mood);
-      setSelectedMoods([...moodSet]);
-    } else {
-      setSelectedMoods([...selectedMoods, mood]);
-    }
+    setSelectedMoods([...selectedMoods, mood]);
   };
 
   const onCompleteSelectionClick = async () => {
