@@ -7,6 +7,12 @@ export const Genders = {
 } as const;
 export type Gender = (typeof Genders)[keyof typeof Genders];
 
+export const Roles = {
+  ADMIN: 'ADMIN',
+  USER: 'USER',
+} as const;
+export type Role = (typeof Roles)[keyof typeof Roles];
+
 export interface RequestTempSignUpInput {
   email: string;
   password: string;
@@ -43,7 +49,7 @@ export interface RequestMeResponse {
   email: string;
   password: string;
   name: string;
-  role: string;
+  role: Role;
   contact: string;
   emailVerified: boolean;
   status: string;

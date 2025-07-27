@@ -26,7 +26,7 @@ export const Header = () => {
           AI 검색
         </Button>
         <Button type='link' onClick={() => navigate(Paths.SELECT_MOOD)}>
-          감정 선택
+          기분 선택
         </Button>
       </nav>
       <div className={styles.flex} />

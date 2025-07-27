@@ -11,7 +11,7 @@ const MOODS_ROW_1 = [Moods.JOY, Moods.SADNESS, Moods.ANGER];
 const MOODS_ROW_2 = [Moods.ANXIETY, Moods.EXCITEMENT, Moods.COMFORT];
 const MOODS_ROW_3 = [Moods.LONELINESS, Moods.INSPIRATION, Moods.HAPPINESS];
 
-const SELECTED_MOOD_MAX_COUNT = 5;
+const SELECTED_MOOD_MAX_COUNT = 3;
 
 export const SelectMood = () => {
   const navigate = useNavigate();

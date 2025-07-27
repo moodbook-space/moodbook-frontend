@@ -4,12 +4,13 @@ import { LogoutButton, ProfileImage } from './ProfileIcon.styles';
 import { removeLocalStorageItem, StorageKeys } from '@/utils/storage';
 import profileImage from '@/assets/profile.png';
 import { Paths } from '@/routes/routes';
-import { requestLogout } from '@/apis/user';
+import { requestLogout, Roles } from '@/apis/user';
 import { useUserStore } from '@/stores/user';
+import { ItemType } from 'antd/es/menu/interface';
 
 export const ProfileIcon = () => {
   const navigate = useNavigate();
-  const { id } = useUserStore();
+  const { id, role } = useUserStore();
 
   const onLogoutClick = async () => {
     const response = await requestLogout(id);
@@ -27,26 +28,32 @@ export const ProfileIcon = () => {
       message.error(JSON.stringify(json));
     }
   };
+
+  const dropdownItems: ItemType[] = [
+    { key: 'admin', label: <Link to='/me'>마이페이지</Link> },
+    {
+      key: 'logout',
+      label: (
+        <LogoutButton type='button' onClick={onLogoutClick}>
+          로그아웃
+        </LogoutButton>
+      ),
+    },
+  ];
+
+  if (role === Roles.ADMIN) {
+    dropdownItems.push({
+      key: 'me',
+      label: (
+        <Link to='/admin' target='_blank'>
+          관리자 페이지
+        </Link>
+      ),
+    });
+  }
+
   return (
-    <Dropdown
-      menu={{
-        items: [
-          { key: 'admin', label: <Link to='/me'>마이페이지</Link> },
-          {
-            key: 'logout',
-            label: (
-              <LogoutButton type='button' onClick={onLogoutClick}>
-                로그아웃
-              </LogoutButton>
-            ),
-          },
-          {
-            key: 'me',
-            label: <Link to='/admin'>관리자 페이지</Link>,
-          },
-        ],
-      }}
-    >
+    <Dropdown menu={{ items: dropdownItems }}>
       <ProfileImage src={profileImage} alt='profile image' />
     </Dropdown>
   );

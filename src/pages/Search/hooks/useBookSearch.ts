@@ -1,4 +1,4 @@
-import { requestGetBooksWithKeyword } from '@/apis/books';
+import { Book, requestGetBooksWithKeyword } from '@/apis/books';
 import { useEffect, useState } from 'react';
 
 interface UseBookSearchProps {
@@ -7,14 +7,14 @@ interface UseBookSearchProps {
 export const useBookSearch = (props: UseBookSearchProps) => {
   const { keyword } = props;
 
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState<Book[]>([]);
 
   useEffect(() => {
     const getSearchedBooks = async () => {
       const response = await requestGetBooksWithKeyword(keyword);
       const json = await response.json();
 
-      setBooks(json);
+      setBooks(json.content);
     };
     getSearchedBooks();
   }, [keyword]);
