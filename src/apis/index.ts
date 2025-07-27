@@ -26,7 +26,6 @@ export const defaultFetch = async (
     location.href = Paths.SIGN_IN;
     removeLocalStorageItem(StorageKeys.ACCESS_TOKEN);
     removeLocalStorageItem(StorageKeys.REFRESH_TOKEN);
-    removeLocalStorageItem(StorageKeys.MOOD_KEYS);
   }
 
   if (!response.ok) {
