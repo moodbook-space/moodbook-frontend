@@ -1,0 +1,597 @@
+/* MeetingDetailPage.module.css */
+
+.container {
+    min-height: 100vh;
+    background-color: #f9fafb;
+    display: flex;
+  }
+  
+  .loadingContainer,
+  .errorContainer {
+    min-height: 100vh;
+    background-color: #f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* 사이드바 */
+  .sidebar {
+    width: 256px;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    border-right: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebarHeader {
+    padding: 24px;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+  
+  .logoIcon {
+    width: 32px;
+    height: 32px;
+    background-color: #334155;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .logoIcon span {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  .logoText {
+    font-size: 20px;
+    font-weight: 600;
+    color: #334155;
+  }
+  
+  .sidebarContent {
+    padding: 24px;
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .sidebarTitle {
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b7280;
+    margin-bottom: 12px;
+  }
+  
+  .bookList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .bookItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .bookCover {
+    width: 48px;
+    height: 64px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  .bookCoverSf {
+    background: linear-gradient(to bottom, #60a5fa, #2563eb);
+  }
+  
+  .bookCoverLiterature {
+    background: linear-gradient(to bottom, #4ade80, #16a34a);
+  }
+  
+  .bookCoverPsychology {
+    background: linear-gradient(to bottom, #a78bfa, #7c3aed);
+  }
+  
+  .bookInfo {
+    flex: 1;
+  }
+  
+  .bookTitle {
+    font-size: 14px;
+    font-weight: 500;
+    color: #111827;
+    margin-bottom: 4px;
+  }
+  
+  .bookAuthor {
+    font-size: 12px;
+    color: #6b7280;
+  }
+  
+  /* 메인 컨텐츠 */
+  .mainContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* 상단바 */
+  .header {
+    background-color: white;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 16px 24px;
+  }
+  
+  .headerContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .headerLeft {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .aiSearchButton {
+    background-color: #475569 !important;
+    border-color: #475569 !important;
+  }
+  
+  .searchContainer {
+    flex: 1;
+    max-width: 576px;
+    margin: 0 32px;
+  }
+  
+  .headerRight {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .headerLink {
+    font-size: 14px;
+    color: #6b7280;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  
+  .headerLink:hover {
+    color: #1f2937;
+  }
+  
+  /* 메인 */
+  .main {
+    flex: 1;
+    padding: 24px;
+  }
+  
+  .backButton {
+    margin-bottom: 24px;
+  }
+  
+  .contentContainer {
+    max-width: 1024px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  /* 모임 정보 카드 */
+  .meetingCard {
+    width: 100%;
+  }
+  
+  .meetingCard :global(.ant-card-body) {
+    padding: 32px;
+  }
+  
+  .meetingHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  
+  .meetingTitleSection {
+    flex: 1;
+  }
+  
+  .meetingTitle {
+    font-size: 24px;
+    font-weight: bold;
+    color: #111827;
+    margin-bottom: 8px;
+  }
+  
+  .meetingMeta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .viewCount {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    color: #6b7280;
+  }
+  
+  .meetingActions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .deleteButton {
+    color: #ef4444;
+  }
+  
+  .deleteButton:hover {
+    color: #dc2626 !important;
+  }
+  
+  .meetingInfo {
+    background-color: #f9fafb;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+  }
+  
+  .infoRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 12px;
+  }
+  
+  .infoRow:last-child {
+    margin-bottom: 0;
+  }
+  
+  .infoItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #6b7280;
+  }
+  
+  .tagList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  
+  .meetingContent {
+    margin-bottom: 24px;
+  }
+  
+  .contentText {
+    color: #1f2937;
+    white-space: pre-wrap;
+    line-height: 1.6;
+  }
+  
+  .meetingFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .likeButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .likeIconFilled {
+    color: #ef4444;
+  }
+  
+  .likeCount {
+    color: #6b7280;
+    font-size: 18px;
+  }
+  
+  .likeCountFilled {
+    color: #ef4444;
+    font-size: 18px;
+  }
+  
+  .chatButton {
+    background-color: #475569;
+    color: white;
+    border-color: #475569;
+  }
+  
+  .chatButton:hover {
+    background-color: #334155 !important;
+    border-color: #334155 !important;
+    color: white !important;
+  }
+  
+  .joinChatButton {
+    background-color: #16a34a;
+    color: white;
+    border-color: #16a34a;
+  }
+  
+  .joinChatButton:hover {
+    background-color: #15803d !important;
+    border-color: #15803d !important;
+    color: white !important;
+  }
+  
+  .enterChatButton {
+    background-color: #2563eb;
+    color: white;
+    border-color: #2563eb;
+  }
+  
+  .enterChatButton:hover {
+    background-color: #1d4ed8 !important;
+    border-color: #1d4ed8 !important;
+    color: white !important;
+  }
+  
+  /* 댓글 섹션 */
+  .commentsCard {
+    width: 100%;
+  }
+  
+  .commentsCard :global(.ant-card-body) {
+    padding: 24px;
+  }
+  
+  .commentsTitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .commentForm {
+    margin-bottom: 24px;
+  }
+  
+  .commentFormContent {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .commentAvatar {
+    flex-shrink: 0;
+  }
+  
+  .commentInputContainer {
+    flex: 1;
+  }
+  
+  .commentInput {
+    resize: none;
+    margin-bottom: 8px;
+  }
+  
+  .commentSubmit {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .commentSubmitButton {
+    background-color: #475569;
+    border-color: #475569;
+  }
+  
+  .commentsList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .commentItem {
+    border-bottom: 1px solid #f3f4f6;
+    padding-bottom: 16px;
+  }
+  
+  .commentItem:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  
+  .commentMain {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .commentContent {
+    flex: 1;
+  }
+  
+  .commentHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  
+  .commentAuthor {
+    font-weight: 500;
+    color: #111827;
+  }
+  
+  .commentDate {
+    font-size: 12px;
+    color: #6b7280;
+  }
+  
+  .deleteCommentButton {
+    font-size: 12px;
+    color: #ef4444;
+    margin-left: auto;
+  }
+  
+  .deleteCommentButton:hover {
+    color: #dc2626 !important;
+  }
+  
+  .commentText {
+    color: #1f2937;
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  
+  .commentActions {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .commentActions button {
+    font-size: 14px;
+    color: #475569;
+  }
+  
+  .commentActions button:hover {
+    color: #1f2937 !important;
+  }
+  
+  /* 답글 */
+  .replyForm {
+    margin-left: 44px;
+    margin-top: 12px;
+    display: flex;
+    gap: 8px;
+  }
+  
+  .replyInputContainer {
+    flex: 1;
+  }
+  
+  .replyInput {
+    resize: none;
+    margin-bottom: 8px;
+  }
+  
+  .replyActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+  
+  .repliesList {
+    margin-left: 44px;
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .replyItem {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .replyContent {
+    flex: 1;
+  }
+  
+  .replyHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  
+  .replyAuthor {
+    font-weight: 500;
+    color: #111827;
+    font-size: 14px;
+  }
+  
+  .replyDate {
+    font-size: 12px;
+    color: #6b7280;
+  }
+  
+  .deleteReplyButton {
+    font-size: 12px;
+    color: #ef4444;
+    margin-left: auto;
+  }
+  
+  .deleteReplyButton:hover {
+    color: #dc2626 !important;
+  }
+  
+  .replyText {
+    color: #1f2937;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .loadMoreContainer {
+    text-align: center;
+    margin-top: 24px;
+  }
+  
+  .loadMoreButton {
+    background-color: #f3f4f6;
+    color: #6b7280;
+  }
+  
+  .loadMoreButton:hover {
+    background-color: #e5e7eb !important;
+    color: #374151 !important;
+  }
+  
+  /* 채팅 모달 */
+  .chatModalContent {
+    padding: 16px 0;
+  }
+  
+  .chatModalContent p {
+    margin-bottom: 16px;
+    color: #6b7280;
+  }
+  
+  /* 반응형 */
+  @media (max-width: 768px) {
+    .infoRow {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    
+    .meetingHeader {
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .meetingFooter {
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+    }
+  }

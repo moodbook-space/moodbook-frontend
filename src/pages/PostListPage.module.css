@@ -1,0 +1,330 @@
+/* PostListPage.module.css */
+
+.container {
+    min-height: 100vh;
+    background-color: #f9fafb;
+    display: flex;
+  }
+  
+  /* 사이드바 */
+  .sidebar {
+    width: 256px;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    border-right: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebarHeader {
+    padding: 24px;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+  
+  .logoIcon {
+    width: 32px;
+    height: 32px;
+    background-color: #334155;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .logoIcon span {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  .logoText {
+    font-size: 20px;
+    font-weight: 600;
+    color: #334155;
+  }
+  
+  .sidebarContent {
+    padding: 24px;
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .sidebarTitle {
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b7280;
+    margin-bottom: 12px;
+  }
+  
+  .bookList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .bookItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .bookCover {
+    width: 48px;
+    height: 64px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  .bookCoverSf {
+    background: linear-gradient(to bottom, #60a5fa, #2563eb);
+  }
+  
+  .bookCoverLiterature {
+    background: linear-gradient(to bottom, #4ade80, #16a34a);
+  }
+  
+  .bookCoverPsychology {
+    background: linear-gradient(to bottom, #a78bfa, #7c3aed);
+  }
+  
+  .bookInfo {
+    flex: 1;
+  }
+  
+  .bookTitle {
+    font-size: 14px;
+    font-weight: 500;
+    color: #111827;
+    margin-bottom: 4px;
+  }
+  
+  .bookAuthor {
+    font-size: 12px;
+    color: #6b7280;
+  }
+  
+  /* 메인 컨텐츠 */
+  .mainContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* 상단바 */
+  .header {
+    background-color: white;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 16px 24px;
+  }
+  
+  .headerContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .headerLeft {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .aiSearchButton {
+    background-color: #475569 !important;
+    border-color: #475569 !important;
+  }
+  
+  .searchContainer {
+    flex: 1;
+    max-width: 576px;
+    margin: 0 32px;
+    position: relative;
+  }
+  
+  .autocompleteDropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    margin-top: 4px;
+    z-index: 10;
+    max-height: 240px;
+    overflow-y: auto;
+  }
+  
+  .autocompleteItem {
+    width: 100%;
+    text-align: left;
+    padding: 12px 16px;
+    cursor: pointer;
+    border-bottom: 1px solid #f3f4f6;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s;
+  }
+  
+  .autocompleteItem:hover {
+    background-color: #f9fafb;
+  }
+  
+  .autocompleteItem:last-child {
+    border-bottom: none;
+  }
+  
+  .autocompleteIcon {
+    color: #9ca3af;
+  }
+  
+  .headerRight {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .headerLink {
+    font-size: 14px;
+    color: #6b7280;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  
+  .headerLink:hover {
+    color: #1f2937;
+  }
+  
+  /* 메인 */
+  .main {
+    flex: 1;
+    padding: 24px;
+  }
+  
+  .tabHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  
+  .tabControls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .createButton {
+    background-color: #475569 !important;
+    border-color: #475569 !important;
+  }
+  
+  /* 게시글 목록 */
+  .postList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .loadingContainer {
+    text-align: center;
+    padding: 32px 0;
+  }
+  
+  .postCard {
+    width: 100%;
+  }
+  
+  .postCard :global(.ant-card-body) {
+    padding: 20px;
+  }
+  
+  .postContent {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  
+  .postMain {
+    flex: 1;
+  }
+  
+  .postTitle {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .postTitleText {
+    font-size: 18px;
+    font-weight: 500;
+    color: #111827;
+    flex: 1;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  
+  .postTitleText:hover {
+    color: #475569;
+  }
+  
+  .postInfo {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 16px;
+  }
+  
+  .infoItem {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .tagList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .likeButton {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: 16px;
+  }
+  
+  .likeIconFilled {
+    color: #ef4444;
+  }
+  
+  .likeCount {
+    color: #6b7280;
+  }
+  
+  .likeCountFilled {
+    color: #ef4444;
+  }
+  
+  /* 페이지네이션 */
+  .paginationContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+  }

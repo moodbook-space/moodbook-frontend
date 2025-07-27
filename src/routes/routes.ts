@@ -3,7 +3,6 @@ import { createBrowserRouter } from 'react-router';
 import { Main } from '@/pages/Main/Main';
 import { Books } from '@/pages/Books/Books';
 import { MyPage } from '@/pages/MyPage/MyPage';
-import { Admin } from '@/pages/Admin/Admin';
 import { SignUp } from '@/pages/SignUp/SignUp';
 import { MainLayout } from '@/layout/MainLayout/MainLayout';
 import { Search } from '@/pages/Search/Search';
@@ -20,7 +19,6 @@ export const Paths = {
   BOOKS: '/books',
   BOOK: '/book',
   ME: '/me',
-  ADMIN: '/admin',
   SEARCH: '/search',
   AI_SEARCH: '/ai-search',
   SELECT_MOOD: '/select-mood',
@@ -44,7 +42,6 @@ export const router = createBrowserRouter([
           { path: Paths.BOOKS, Component: Books },
           { path: Paths.BOOK, Component: BookDetail },
           { path: Paths.ME, Component: MyPage },
-          { path: Paths.ADMIN, Component: Admin },
           { path: Paths.SEARCH, Component: Search },
           { path: Paths.AI_SEARCH, Component: AiSearch },
           { path: Paths.SELECT_MOOD, Component: SelectMood },

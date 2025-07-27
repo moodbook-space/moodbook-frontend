@@ -10,4 +10,9 @@ export default defineConfig({
   resolve: {
     alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
   },
+  server: {
+    proxy: {
+      '/admin': 'http://43.200.89.83:8080',
+    },
+  },
 });
