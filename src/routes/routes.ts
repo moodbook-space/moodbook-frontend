@@ -26,6 +26,7 @@ export const Paths = {
   SELECT_MOOD: '/select-mood',
   MEETING_CREATE: '/meeting/create',
   MEETING: '/meeting',
+  MYPAGE: '/mypage',
 
   SIGN_UP: '/sign-up',
   SIGN_IN: '/sign-in',
@@ -50,6 +51,7 @@ export const router = createBrowserRouter([
           { path: Paths.SELECT_MOOD, Component: SelectMood },
           { path: Paths.MEETING_CREATE, Component: MeetingCreatePage },
           { path: Paths.MEETING, Component: MeetingDetailPage },
+          { path: Paths.MYPAGE, Component: MyPage}
         ],
       },
       { path: Paths.SIGN_UP, Component: SignUp },
