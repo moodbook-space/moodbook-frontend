@@ -39,7 +39,8 @@ export const requestModifyProfile = (request: ModifyProfileRequest) => {
   })
 }
 
-export const patchProfile = async (payload: ModifyProfileRequest) => {
+// 개인정보 변경 시에 실행될 함수
+export const reqeustPatchProfile = async (payload: ModifyProfileRequest) => {
   const response = await defaultFetch(`${Envs.VITE_API_ENDPOINT}/api/mypage/modify`, {
     method: 'PATCH',
     headers: {
@@ -55,7 +56,8 @@ export const patchProfile = async (payload: ModifyProfileRequest) => {
   return await response.json(); // 필요 시 수정
 };
 
-export const patchImage = async (payload: FormData) => {
+// 이미지 변경 시에 사용하는 함수
+export const requestPatchImage = async (payload: FormData) => {
   const response = await defaultFetch(`${Envs.VITE_API_ENDPOINT}/api/mypage/modify/image`, {
     method: 'PATCH',
     body: payload
@@ -66,4 +68,11 @@ export const patchImage = async (payload: FormData) => {
   }
 
   return await response.json();
+}
+
+// 회원 탈퇴 시에 사용하는 함수
+export const requestWithdraw = async (id: number) => {
+  return defaultFetch(`${Envs.VITE_API_ENDPOINT}/api/oauth/deactivate/${id}`, {
+    method: 'PATCH'
+  });
 }
