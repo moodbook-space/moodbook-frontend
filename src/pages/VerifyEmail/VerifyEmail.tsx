@@ -18,6 +18,7 @@ export const VerifyEmail = () => {
       console.log("searchParams:", searchParams.toString());
       console.log("token:", token);
       const response = await requestVerifyEmail(token);
+      console.log("response:", response);
       const json = await response.json();
       if (response.status === 200) {
         setVerifySuccess(true);
