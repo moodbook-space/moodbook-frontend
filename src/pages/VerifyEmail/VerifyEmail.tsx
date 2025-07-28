@@ -14,11 +14,7 @@ export const VerifyEmail = () => {
 
   useEffect(() => {
     const verifyEmail = async () => {
-      console.log("페이지 마운트됨");
-      console.log("searchParams:", searchParams.toString());
-      console.log("token:", token);
       const response = await requestVerifyEmail(token);
-      console.log("response:", response);
       const json = await response.json();
       if (response.status === 200) {
         setVerifySuccess(true);
