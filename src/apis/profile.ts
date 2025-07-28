@@ -1,18 +1,6 @@
-import {Envs} from '@/utils/env';
-import {defaultFetch} from '.';
-
-export interface RequestGetProfileResponse {
-  myImage: string;
-  name: string;
-  nickname: string;
-  email: string;
-  contact: string;
-}
-
-export interface PasswordFields {
-  password: string;
-  confirmPassword: string;
-}
+import { Envs } from '@/utils/env';
+import { defaultFetch } from '.';
+import { ModifyProfileRequest } from "@/apis/mypageModify.ts";
 
 // ! modify API에 데이터가 더 많아서, 이걸로 그냥 사용함
 /** @return RequestGetProfileResponse */
@@ -22,10 +10,11 @@ export const requestGetProfile = () => {
   });
 };
 
-export interface ModifyProfileRequest {
+export interface RequestGetProfileResponse {
+  myImage: string;
   name: string;
-  password: string;
   nickname: string;
+  email: string;
   contact: string;
   address: string;
 }
