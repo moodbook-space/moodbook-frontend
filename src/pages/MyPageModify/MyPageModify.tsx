@@ -15,8 +15,6 @@ import {
 } from './MyPageModify.styles';
 import { useState} from "react";
 import {
-  ModifyProfileRequest,
-  PasswordFields,
   reqeustPatchProfile,
   requestPatchImage,
   requestWithdraw
@@ -26,10 +24,10 @@ import {message} from "antd";
 import { useUserStore } from '@/stores/user.ts';
 import { removeLocalStorageItem, StorageKeys } from '@/utils/storage.ts';
 import { Paths } from '@/routes/routes.ts';
-
+import { PasswordFields, ModifyProfileRequest } from "@/apis/mypageModify.ts";
 export const MyPageModify =  () => {
   const navigate = useNavigate();
-  const {id} = useUserStore();
+  const { id } = useUserStore();
 
   const { profile, setProfile } =  useProfile();
 
@@ -128,7 +126,7 @@ export const MyPageModify =  () => {
       password: passwords.password,
       nickname: profile?.nickname ?? '',
       contact: profile?.contact ?? '',
-      address: "주소 알수없음"
+      address: profile?.address ?? '',
     };
 
     // 비밀번호 서로 다른지 체크
@@ -222,6 +220,14 @@ export const MyPageModify =  () => {
                 <Input
                     name='contact'
                     value={profile.contact}
+                    onChange={handleChange}/>
+              </FormRow>
+
+              <FormRow>
+                <Label>주소 :</Label>
+                <Input
+                    name='address'
+                    value={profile.address}
                     onChange={handleChange}/>
               </FormRow>
 

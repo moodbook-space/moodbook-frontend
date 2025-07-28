@@ -1,31 +1,18 @@
-import { Envs } from '@/utils/env';
-import { defaultFetch } from '.';
-import { ModifyProfileRequest } from "@/apis/mypageModify.ts";
+// Modify를 위한 데이터를 저장하는 Reuqest
+import {defaultFetch} from "@/apis/index.ts";
+import { Envs } from "@/utils/env";
 
-// ! modify API에 데이터가 더 많아서, 이걸로 그냥 사용함
-/** @return RequestGetProfileResponse */
-export const requestGetProfile = () => {
-  return defaultFetch(`${Envs.VITE_API_ENDPOINT}/api/mypage/modify`, {
-    method: 'GET',
-  });
-};
-
-export interface RequestGetProfileResponse {
-  myImage: string;
-  name: string;
-  nickname: string;
-  email: string;
-  contact: string;
-  address: string;
+export interface PasswordFields {
+  password: string;
+  confirmPassword: string;
 }
 
-// Modify를 위한 데이터를 저장하는 Reuqest
-export const requestModifyProfile = (request: ModifyProfileRequest) => {
-
-  return defaultFetch(`${Envs.VITE_API_ENDPOINT}/api/mypage/modify`, {
-    method: 'POST',
-    body: JSON.stringify({request})
-  })
+export interface ModifyProfileRequest {
+  name: string;
+  password: string;
+  nickname: string;
+  contact: string;
+  address: string;
 }
 
 // 개인정보 변경 시에 실행될 함수
