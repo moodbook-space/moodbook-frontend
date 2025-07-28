@@ -85,6 +85,7 @@ export const requestLogout = (id: number) => {
 };
 
 export const requestVerifyEmail = (token: string) => {
+  console.log(`실제 요청된 경로 : ${Envs.VITE_API_ENDPOINT}/auth/verify-email?token=${token}`);
   return defaultFetch(
     `${Envs.VITE_API_ENDPOINT}/auth/verify-email?token=${token}`,
     {
