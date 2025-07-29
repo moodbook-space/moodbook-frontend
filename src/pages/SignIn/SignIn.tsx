@@ -103,11 +103,10 @@ export const SignIn = () => {
               window.location.href = "https://moodbook.live/oauth2/authorization/google"} />
           </SocialLoginButton>
           <SocialLoginButton onClick={() => alert('카카오 로그인 준비 중')}>
-            <img src={KakaoLoginImage} alt='Kakao Login' />
+            <img src={KakaoLoginImage} alt='Kakao Login' onClick={() =>
+              window.location.href = "https://moodbook.live/oauth2/authorization/kakao"} />
           </SocialLoginButton>
         </SocialLoginGroup>
-
-
       </Card>
     </Container>
   );
