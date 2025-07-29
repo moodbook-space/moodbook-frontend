@@ -62,10 +62,6 @@ export const SignIn = () => {
     navigate(Paths.SIGN_UP);
   };
 
-  const onSocialLoginClick = () => {
-    alert('TODO');
-  };
-
   return (
     <Container>
       <LogoImg
@@ -102,8 +98,9 @@ export const SignIn = () => {
           <img src={KakaoLoginImage} />
         </SocialLoginButton> */}
         <SocialLoginGroup>
-          <SocialLoginButton onClick={() => alert('구글 로그인 준비 중')}>
-            <img src={GoogleLoginImage} alt='Google Login' />
+          <SocialLoginButton>
+            <img src={GoogleLoginImage} alt='Google Login' onClick={() =>
+              window.location.href = "https://moodbook.live/login/oauth2/authorization/google"} />
           </SocialLoginButton>
           <SocialLoginButton onClick={() => alert('카카오 로그인 준비 중')}>
             <img src={KakaoLoginImage} alt='Kakao Login' />
