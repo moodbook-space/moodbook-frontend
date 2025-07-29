@@ -98,13 +98,13 @@ export const SignIn = () => {
           <img src={KakaoLoginImage} />
         </SocialLoginButton> */}
         <SocialLoginGroup>
-          <SocialLoginButton>
-            <img src={GoogleLoginImage} alt='Google Login' onClick={() =>
-              window.location.href = "https://moodbook.live/oauth2/authorization/google"} />
+          <SocialLoginButton onClick={() =>
+              window.location.href = "https://moodbook.live/oauth2/authorization/google"}>
+              <img src={GoogleLoginImage} alt='Google Login'/>
           </SocialLoginButton>
-          <SocialLoginButton onClick={() => alert('카카오 로그인 준비 중')}>
-            <img src={KakaoLoginImage} alt='Kakao Login' onClick={() =>
-              window.location.href = "https://moodbook.live/oauth2/authorization/kakao"} />
+          <SocialLoginButton onClick={() =>
+              window.location.href = "https://moodbook.live/oauth2/authorization/kakao"}>
+              <img src={KakaoLoginImage} alt='Kakao Login'/>
           </SocialLoginButton>
         </SocialLoginGroup>
       </Card>
