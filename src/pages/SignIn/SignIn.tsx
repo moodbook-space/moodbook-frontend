@@ -100,11 +100,11 @@ export const SignIn = () => {
         <SocialLoginGroup>
           <SocialLoginButton>
             <img src={GoogleLoginImage} alt='Google Login' onClick={() =>
-              window.location.href = "https://accounts.google.com/o/oauth2/v2/auth/code/google"} />
+              window.location.href = "https://moodbook.live/oauth2/authorization/google"} />
           </SocialLoginButton>
           <SocialLoginButton onClick={() => alert('카카오 로그인 준비 중')}>
             <img src={KakaoLoginImage} alt='Kakao Login' onClick={() =>
-              window.location.href = "https://kauth.kakao.com/oauth/authorize"} />
+              window.location.href = "https://moodbook.live/oauth2/authorization/kakao"} />
           </SocialLoginButton>
         </SocialLoginGroup>
       </Card>
